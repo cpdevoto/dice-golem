@@ -14,7 +14,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_number_token() {
     // Given
     try (StringReader reader = new StringReader("1")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -37,7 +37,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_negative_number_as_two_tokens() {
     // Given
     try (StringReader reader = new StringReader("-1")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -74,7 +74,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_multi_digit_number_token() {
     // Given
     try (StringReader reader = new StringReader("12345")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -97,7 +97,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_lowercase_die_token() {
     // Given
     try (StringReader reader = new StringReader("d")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -119,7 +119,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_uppercase_die_token() {
     // Given
     try (StringReader reader = new StringReader("D")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -141,7 +141,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_left_paren_token() {
     // Given
     try (StringReader reader = new StringReader("(")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -163,7 +163,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_right_paren_token() {
     // Given
     try (StringReader reader = new StringReader(")")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -185,7 +185,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_multiply_token() {
     // Given
     try (StringReader reader = new StringReader("*")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -207,7 +207,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_divide_token() {
     // Given
     try (StringReader reader = new StringReader("/")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -230,7 +230,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_plus_token() {
     // Given
     try (StringReader reader = new StringReader("+")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -252,7 +252,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_minus_token() {
     // Given
     try (StringReader reader = new StringReader("-")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -274,7 +274,7 @@ public class LexicalAnalyzerTest {
   public void should_recognize_eos() {
     // Given
     try (StringReader reader = new StringReader("1")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -313,7 +313,7 @@ public class LexicalAnalyzerTest {
   public void should_generate_eos_token_when_expression_is_blank() {
     // Given
     try (StringReader reader = new StringReader("  ")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -336,7 +336,7 @@ public class LexicalAnalyzerTest {
   public void should_generate_eos_token_when_expression_is_empty() {
     // Given
     try (StringReader reader = new StringReader("")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -358,7 +358,7 @@ public class LexicalAnalyzerTest {
   public void should_generate_eos_token_again_when_nextToken_called_after_eos_reached() {
     // Given
     try (StringReader reader = new StringReader("")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -395,7 +395,7 @@ public class LexicalAnalyzerTest {
   public void should_ignore_whitespace_except_in_terms_of_tracking_position() {
     // Given
     try (StringReader reader = new StringReader("   -         1    ")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -447,7 +447,7 @@ public class LexicalAnalyzerTest {
   public void should_reflect_line_breaks_in_position_line_number() {
     // Given
     try (StringReader reader = new StringReader("\n\n+")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();
@@ -470,7 +470,7 @@ public class LexicalAnalyzerTest {
   public void should_throw_exception_when_expression_contains_invalid_token() {
     // Given
     try (StringReader reader = new StringReader(" 1b4")) {
-      LexicalAnalyzer lex = new LexicalAnalyzerImpl(reader);
+      LexicalAnalyzer lex = new LexicalAnalyzer(reader);
 
       // When
       Token tok = lex.nextToken();

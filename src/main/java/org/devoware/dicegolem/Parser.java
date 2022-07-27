@@ -24,7 +24,7 @@ class Parser {
   static Expression parse(String expression) {
     requireNonNull(expression, "expression cannot be null");
     try (StringReader in = new StringReader(expression)) {
-      LexicalAnalyzer lexer = new LexicalAnalyzerImpl(in);
+      LexicalAnalyzer lexer = new LexicalAnalyzer(in);
       Parser parser = new Parser(lexer);
       return parser.parse();
     }
