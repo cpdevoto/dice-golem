@@ -32,7 +32,7 @@ This library exists for educational purposes, and to show some best practices fo
   * **Test Readability 1:** In order to improve the readability of the tests I wrote to validate that each instance of the Die class was generating random numbers in an expected range, I created an ``org.devoware.dicegolem.testinfra.AssertRandomNumberGenerator`` class which exposes an API that allows for the following assertions:
   
   ```java
-     assertThat(() -> Die.D4.roll())
+     assertThat(() -> Die.D4.roll()) 
         .generatesNumbersBetween(1, 4);
   ```
 
